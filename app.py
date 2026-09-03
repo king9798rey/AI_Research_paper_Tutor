@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 
 # FastAPI Backend URL
-FASTAPI_URL = "http://127.0.0.1:8000"
+FASTAPI_URL = "https://ai-research-paper-tutor.onrender.com"
 
 st.set_page_config(page_title="AI Research Paper Tutor", page_icon="🎓", layout="wide")
 
