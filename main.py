@@ -48,6 +48,7 @@ def reseach_paper(file: UploadFile = File(...)):
             shutil.copyfileobj(file.file, buffer)
 
         parse=LlamaParse(
+            api_key=os.getenv("LLAMA_CLOUD_API_KEY"),
             result_type='markdown',
             verbose=True
         )
