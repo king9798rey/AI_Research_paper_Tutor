@@ -47,8 +47,12 @@ def reseach_paper(file: UploadFile = File(...)):
         with open(file_path, 'wb') as buffer:
             shutil.copyfileobj(file.file, buffer)
 
+        llama_api_key = os.getenv("LLAMA_CLOUD_API_KEY")
+        if not llama_api_key:
+            raise HTTPException(status_code=500, detail="LLAMA_CLOUD_API_KEY environment variable is not set.")
+
         parse=LlamaParse(
-            api_key=os.getenv("LLAMA_CLOUD_API_KEY"),
+            api_key=llama_api_key,
             result_type='markdown',
             verbose=True
         )
